@@ -33,7 +33,7 @@ RUN npm install
 COPY . .
 
 # Expose port for React (Vite default 5173, CRA default 3000)
-EXPOSE 3000
+EXPOSE 5173
 
 # Default command: start in dev mode
 CMD ["npm", "start"]
