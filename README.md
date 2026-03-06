@@ -26,11 +26,34 @@ configure docker in react
 start docker engine
 
 ## Build 
-For docker build, use this command
+docker compose up --build
 
-docker build -t react-app .
 
-## Run Command
-To run the React project use this
+## Test Case
+## Field                      ## Description
+1) Test Case ID                  TC_001
+2) Title                         Employee management App
+3) Description                  Verify that the Employee Management screen displays existing employee data, and allows adding, editing, and deleting employee records in the table.
+4) Preconditions                 User is logged into the application and navigates to the "Add Employee" form
+5) Test Steps                   -Open the Employee Management page.
+                                -Existing employee data should be displayed in the table.
+                                -To add a new employee, fill in the form fields and click the Save button.
+                                -To edit an employee, click the Edit button, modify the data, and click Update.
+                                -To delete an employee, click the Delete button on the corresponding row.
+6) Test Data                    - Employee ID: 1
+                                - Name: Chandrakanth
+                                - Date of Joining: 02-03-2026
+                                - Resign: N
+                                - Date of Resign: N/A
+7) Expected Result              - Employee data is correctly saved, updated, and deleted in the database.
+                                - Table reflects the changes immediately.
+                                - Form resets after saving or updating.
+8) Actual Result                Data saving, updating, and deleting works correctly in the database.
+9) Status                       Pass
+10) Postconditions              After saving or updating, the form fields are cleared, ready for new input.
 
-docker run -p 5173:5173 react-app
+
+## To run the test
+docker compose run react-app npm install vitest -- to install vitest
+
+docker compose run react-app npm test -- to run the test

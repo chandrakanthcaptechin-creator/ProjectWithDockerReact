@@ -1,20 +1,14 @@
-# Use Node.js LTS image
-FROM node:20-alpine
+FROM node:18
 
-# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install
+RUN npm install bootstrap
 
-# Copy the rest of the application
 COPY . .
 
-# Expose the port React uses (Vite default is 5173)
 EXPOSE 5173
 
-# Start the development server
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "dev", "--", "--host"]

@@ -1,0 +1,39 @@
+# # Use Node LTS image
+# FROM node:20-alpine
+
+# # Set working directory
+# WORKDIR /app
+
+# # Copy package.json and package-lock.json
+# COPY package*.json ./
+
+# # Install dependencies
+# RUN npm install
+
+# # Copy the rest of the project
+# COPY . .
+
+# # Run tests
+# CMD ["npm", "test", "--", "--watchAll=false"]
+
+# Use Node LTS
+FROM node:18
+
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies (including dev dependencies for testing)
+RUN npm install
+
+# Copy the rest of the app
+COPY . .
+
+# Expose port for React (Vite default 5173, CRA default 3000)
+EXPOSE 3000
+
+# Default command: start in dev mode
+CMD ["npm", "start"]
